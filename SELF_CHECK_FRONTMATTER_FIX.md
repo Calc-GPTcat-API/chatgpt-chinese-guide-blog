@@ -1,0 +1,73 @@
+# SELF CHECK FRONTMATTER FIX
+
+- ✅ fixed markdown files
+- ✅ no ---title style frontmatter
+- ✅ no ---# closing-frontmatter same-line glue
+- ✅ no Invalid Date text
+- ✅ package.json exists
+- ✅ package-lock absent
+- ✅ node_modules absent
+
+Fixed files count: 62
+- docs/404.md
+- docs/index.md
+- docs/blog/chatgpt-chinese-entry-guide/index.md
+- docs/blog/chatgpt-mirror-site-safety/index.md
+- docs/blog/chatgpt-official-entry-domestic-use/index.md
+- docs/blog/chatgpt-plus-china-payment-guide/index.md
+- docs/blog/chatgpt-website-not-working/index.md
+- docs/blog/what-is-zeogpt/index.md
+- docs/blog/zeogpt-pricing-comparison/index.md
+- docs/blog/zeogpt-register-guide/index.md
+- docs/blog/chatgpt-account-registration-guide/index.md
+- docs/blog/chatgpt-registration-failed/index.md
+- docs/blog/chatgpt-official-site-verification/index.md
+- docs/blog/chatgpt-chinese-language-settings/index.md
+- docs/blog/chatgpt-mobile-use-guide/index.md
+- docs/blog/chatgpt-desktop-use-guide/index.md
+- docs/blog/chatgpt-web-vs-app/index.md
+- docs/blog/chatgpt-free-vs-plus/index.md
+- docs/blog/chatgpt-plus-features-guide/index.md
+- docs/blog/chatgpt-plus-payment-failed/index.md
+- docs/blog/chatgpt-plus-cancel-subscription/index.md
+- docs/blog/chatgpt-plus-refund-guide/index.md
+- docs/blog/chatgpt-plus-account-safety/index.md
+- docs/blog/chatgpt-error-messages-guide/index.md
+- docs/blog/chatgpt-login-failed/index.md
+- docs/blog/chatgpt-too-many-requests/index.md
+- docs/blog/chatgpt-history-missing/index.md
+- docs/blog/chatgpt-privacy-settings/index.md
+- docs/blog/chatgpt-mirror-vs-official/index.md
+- docs/blog/choose-chatgpt-mirror-site/index.md
+- docs/blog/chatgpt-shared-account-risks/index.md
+- docs/blog/ai-mirror-privacy-risks/index.md
+- docs/blog/zeogpt-login-problems/index.md
+- docs/blog/zeogpt-password-reset/index.md
+- docs/blog/zeogpt-wechat-payment/index.md
+- docs/blog/zeogpt-renewal-upgrade/index.md
+- docs/blog/zeogpt-refund-policy/index.md
+- docs/blog/zeogpt-plus-plan-guide/index.md
+- docs/blog/zeogpt-pro-5x-guide/index.md
+- docs/blog/zeogpt-pro-20x-guide/index.md
+- docs/blog/zeogpt-codex-quota-guide/index.md
+- docs/blog/zeogpt-supported-models/index.md
+- docs/blog/zeogpt-gpt-model-selection/index.md
+- docs/blog/claude-domestic-use-guide/index.md
+- docs/blog/claude-vs-chatgpt-chinese/index.md
+- docs/blog/gemini-domestic-use-guide/index.md
+- docs/blog/gemini-vs-chatgpt/index.md
+- docs/blog/grok-domestic-use-guide/index.md
+- docs/blog/grok-vs-chatgpt/index.md
+- docs/blog/deepseek-use-guide/index.md
+- docs/blog/deepseek-vs-chatgpt/index.md
+- docs/blog/multi-model-ai-subscription-guide/index.md
+- docs/blog/choose-ai-model-guide/index.md
+- docs/blog/ai-writing-model-comparison/index.md
+- docs/blog/ai-coding-model-comparison/index.md
+- docs/blog/long-context-ai-models/index.md
+- docs/blog/ai-tools-privacy-guide/index.md
+- docs/blog/ai-hallucination-verification/index.md
+- docs/blog/chinese-prompt-writing-guide/index.md
+- docs/blog/ai-office-workflow-guide/index.md
+- docs/blog/student-responsible-ai-use/index.md
+- docs/blog/business-ai-platform-security/index.md

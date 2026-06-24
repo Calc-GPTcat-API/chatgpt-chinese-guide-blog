@@ -1,0 +1,33 @@
+{
+  "name": "chatgpt-chinese-guide-zeogpt-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/generate-public-seo.mjs",
+    "dev": "vitepress dev docs",
+    "prebuild": "node scripts/generate-public-seo.mjs",
+    "build": "vitepress build docs",
+    "build:production": "node scripts/check-domain.mjs && npm run build",
+    "preview": "vitepress preview docs --host 0.0.0.0 --port 4173",
+    "audit": "node scripts/audit-site.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "test": "npm run build && npm run audit && npm run check:links",
+    "seo:generate": "node scripts/generate-seo-assets.mjs",
+    "indexnow": "node scripts/submit-indexnow.mjs",
+    "export:bing": "node scripts/export-bing-submit-list.mjs",
+    "export:promotion": "node scripts/export-promotion-briefs.mjs",
+    "import:rewrites": "node scripts/import-article-rewrites.mjs"
+  },
+  "devDependencies": {
+    "vitepress": "1.6.4",
+    "vue": "3.5.38",
+    "vite": "6.4.3"
+  },
+  "overrides": {
+    "vite": "6.4.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
