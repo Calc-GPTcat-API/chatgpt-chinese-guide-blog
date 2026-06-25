@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name 这里填新站域名;
+    server_name www.chinachatgpt.com chinachatgpt.com;
     root /var/www/chatgpt-chinese-guide;
     index index.html;
 
@@ -20,4 +20,5 @@ server {
     error_page 404 /404.html;
     add_header X-Content-Type-Options "nosniff" always;
     add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header X-Frame-Options "SAMEORIGIN" always;
 }

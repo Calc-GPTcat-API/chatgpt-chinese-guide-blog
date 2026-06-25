@@ -1,27 +1,18 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import articles from '../content-data/published-articles.json' with { type: 'json' }
+import { SITE_ORIGIN } from '../site.config.mjs'
 
-const siteUrl = (process.env.SITE_URL || 'https://example.com').replace(/\/$/, '')
-const articles = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'content-data/published-articles.json'), 'utf8'))
-const topSlugs = [
-  'chatgpt-official-entry-domestic-use',
-  'chatgpt-chinese-entry-guide',
-  'chatgpt-website-not-working',
-  'chatgpt-plus-china-payment-guide',
-  'chatgpt-mirror-site-safety',
-  'what-is-zeogpt',
-  'zeogpt-register-guide',
-  'zeogpt-pricing-comparison'
-]
-
+const published = articles.filter((item) => item.status === 'published')
 const urls = [
-  `${siteUrl}/`,
-  `${siteUrl}/blog/`,
-  ...topSlugs.map((slug) => `${siteUrl}/blog/${slug}/`),
-  ...articles.filter((item) => !topSlugs.includes(item.slug)).slice(0, 12).map((item) => `${siteUrl}/blog/${item.slug}/`)
+  `${SITE_ORIGIN}/`,
+  `${SITE_ORIGIN}/blog/`,
+  `${SITE_ORIGIN}/zeogpt/`,
+  `${SITE_ORIGIN}/pricing-guide/`,
+  ...published.map((item) => `${SITE_ORIGIN}/blog/${item.slug}/`)
 ]
 
-const outDir = path.join(process.cwd(), 'exports')
+const outDir = path.resolve('exports')
 fs.mkdirSync(outDir, { recursive: true })
 fs.writeFileSync(path.join(outDir, 'bing-submit-urls.txt'), urls.join('\n') + '\n')
-console.log(`Wrote ${urls.length} URLs to exports/bing-submit-urls.txt`)
+console.log(`Wrote ${urls.length} reviewed URLs to exports/bing-submit-urls.txt`)

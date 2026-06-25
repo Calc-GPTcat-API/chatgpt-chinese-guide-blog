@@ -5,9 +5,11 @@ h1: "ZEOGPT 套餐怎么选？Plus、Pro 5x、Pro 20x 区别对比"
 article: true
 author: "ChatGPT中文指南编辑部"
 date: "2026-06-20"
-updated: "2026-06-20"
+updated: "2026-06-25"
 category: "ZEOGPT 使用指南"
-tags: ["ZEOGPT", "ZEOGPT 使用指南", "Plus", "ZEOGPT 套餐", "ZEOGPT Plus"]
+tags: ["ZEOGPT", "套餐对比", "额度", "付款规则"]
+contentStatus: "published"
+checked: "2026-06-25"
 outline: [2, 3]
 prev:
   text: "ZEOGPT 怎么注册？"
@@ -24,11 +26,6 @@ faqs:
     answer: "会。本文是 2026 年 6 月 22 日公开月付页面快照。"
 ---
 # ZEOGPT 套餐怎么选？Plus、Pro 5x、Pro 20x 区别对比
-
-<div class="article-top-affiliate" aria-label="ZEOGPT 注册入口">
-  <strong>ZEOGPT 入口：</strong>
-  <a href="https://www.zeogpt.com/register?ref=Ac3KbS3F" target="_blank" rel="sponsored nofollow noopener noreferrer">zeogpt.com/register?ref=Ac3KbS3F ↗</a>
-</div>
 
 <ZeogptCta variant="agent" title="需要多模型入口？" text="可打开 ZEOGPT 核对套餐、模型和额度。" label="查看 ZEOGPT 套餐" />
 
@@ -181,6 +178,6 @@ ZEOGPT FAQ 公开说明，同套餐购买属于续费，时长在原到期日后
 
 <div class="disclaimer-box"><strong>免责声明：</strong>价格与额度为特定日期公开页面快照，不构成报价、性能承诺或购买建议。付款前请核对实时页面并自行承担第三方服务风险。</div>
 
-## 下一步：直接查看 ZEOGPT
+## 下一步：核对方案后再决定
 
 <ZeogptCta variant="agent" title="确认需求？查看 ZEOGPT" text="确认需要第三方入口后，进入 ZEOGPT 核对套餐、额度和付款规则。" label="打开注册页" />

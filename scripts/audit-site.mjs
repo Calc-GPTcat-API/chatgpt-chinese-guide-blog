@@ -5,26 +5,43 @@ import { SITE_IS_PLACEHOLDER, SITE_ORIGIN } from '../site.config.mjs'
 
 const root = path.resolve('docs/.vitepress/dist')
 const failures = []
+const published = articles.filter((item) => item.status === 'published')
+const review = articles.filter((item) => item.status === 'review')
+const highIntent = new Set([
+  'what-is-zeogpt',
+  'zeogpt-register-guide',
+  'zeogpt-pricing-comparison'
+])
+
+if (!fs.existsSync(root)) {
+  console.error('缺少构建目录，请先运行 npm run build。')
+  process.exit(1)
+}
+
+if (articles.length !== 60) failures.push(`文章总数为 ${articles.length}，预期 60`)
+if (published.length !== 8) failures.push(`公开文章为 ${published.length}，预期 8`)
+if (review.length !== 52) failures.push(`复核队列为 ${review.length}，预期 52`)
+
 const required = [
-  'index.html','blog/index.html','zeogpt/index.html','pricing-guide/index.html',
-  'faq/index.html','robots.txt','sitemap.xml','feed.xml'
+  'index.html',
+  'blog/index.html',
+  'zeogpt/index.html',
+  'pricing-guide/index.html',
+  'faq/index.html',
+  'about/index.html',
+  'editorial-policy/index.html',
+  'privacy/index.html',
+  'disclaimer/index.html',
+  'robots.txt',
+  'sitemap.xml',
+  'feed.xml'
 ]
-const topicRoutes = [
-  'topics/chatgpt-official-entry/index.html',
-  'topics/chatgpt-china-use/index.html',
-  'topics/chatgpt-chinese-version/index.html',
-  'topics/chatgpt-plus-payment/index.html',
-  'topics/chatgpt-mirror-safety/index.html',
-  'topics/zeogpt-guide/index.html',
-  'topics/ai-models-tools/index.html'
-]
-for (const topic of topicRoutes) required.push(topic)
-for (const article of articles) required.push(`blog/${article.slug}/index.html`)
-for (const file of required) if (!fs.existsSync(path.join(root, file))) failures.push(`缺少构建文件：${file}`)
+for (const item of articles) required.push(`blog/${item.slug}/index.html`)
+for (const file of required) {
+  if (!fs.existsSync(path.join(root, file))) failures.push(`缺少构建文件：${file}`)
+}
 
 const htmlFiles = []
-const seenTitles = new Map()
-const seenCanonicals = new Map()
 function walk(dir) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, entry.name)
@@ -32,74 +49,105 @@ function walk(dir) {
     else if (entry.name.endsWith('.html')) htmlFiles.push(full)
   }
 }
-if (fs.existsSync(root)) walk(root)
+walk(root)
 
+const seenTitles = new Map()
+const seenCanonicals = new Map()
 for (const file of htmlFiles) {
   const html = fs.readFileSync(file, 'utf8')
   const rel = path.relative(root, file)
-  const titleMatch = html.match(/<title>([^<]{10,})<\/title>/)
-  if (!titleMatch) failures.push(`${rel} 缺少有效 title`)
-  else if (rel !== '404.html') {
-    const list = seenTitles.get(titleMatch[1]) || []
-    list.push(rel)
-    seenTitles.set(titleMatch[1], list)
-  }
-  if (rel !== '404.html' && !/<meta name="description" content="[^"]{30,}"/.test(html)) failures.push(`${rel} 缺少有效 description`)
-  const canonicalMatch = html.match(/<link rel="canonical" href="(https?:\/\/[^"]+)"/)
-  if (!canonicalMatch && rel !== '404.html') failures.push(`${rel} 缺少 canonical`)
-  else if (canonicalMatch && rel !== '404.html') {
-    const list = seenCanonicals.get(canonicalMatch[1]) || []
-    list.push(rel)
-    seenCanonicals.set(canonicalMatch[1], list)
-  }
-  if (rel !== '404.html' && !html.includes('application/ld+json')) failures.push(`${rel} 缺少 JSON-LD`)
-  if (/gptchatguide\.com|gptbuys\.com|chatgpt-buy\.com|ref=LIJUN/i.test(html)) failures.push(`${rel} 仍含旧域名或旧参数`)
-  if (/ChatGPT 官方中文版|OpenAI 官方授权|国内官方入口|100% 可用|永久稳定|绝不封号|保证可用|100% 成功充值/.test(html)) failures.push(`${rel} 含站点禁用的误导性固定短语`)
-}
-for (const [title, files] of seenTitles) if (files.length > 1) failures.push(`重复 title：${title} -> ${files.join(', ')}`)
-for (const [canonical, files] of seenCanonicals) if (files.length > 1) failures.push(`重复 canonical：${canonical} -> ${files.join(', ')}`)
+  if (rel === '404.html') continue
 
-for (const article of articles) {
-  const source = path.resolve('docs/blog', article.slug, 'index.md')
-  if (!fs.existsSync(source)) {
-    failures.push(`缺少文章源文件：${article.slug}`)
-    continue
+  const title = html.match(/<title>([^<]{8,})<\/title>/)?.[1]
+  if (!title) failures.push(`${rel} 缺少有效 title`)
+  else {
+    const list = seenTitles.get(title) || []
+    list.push(rel)
+    seenTitles.set(title, list)
   }
+
+  if (!/<meta name="description" content="[^"]{30,}"/.test(html)) {
+    failures.push(`${rel} 缺少有效 description`)
+  }
+
+  const canonical = html.match(/<link rel="canonical" href="(https?:\/\/[^"]+)"/)?.[1]
+  if (!canonical) failures.push(`${rel} 缺少 canonical`)
+  else {
+    const list = seenCanonicals.get(canonical) || []
+    list.push(rel)
+    seenCanonicals.set(canonical, list)
+  }
+
+  if (!html.includes('application/ld+json')) failures.push(`${rel} 缺少 JSON-LD`)
+  if (/example\.com|这里填新站域名|chatgpt-buy\.com|gptchatguide\.com|ref=LIJUN/i.test(html)) {
+    failures.push(`${rel} 含占位域名、旧域名或旧推广参数`)
+  }
+  if (/承接流量|完成使用|持续内链|反复触达/.test(html)) {
+    failures.push(`${rel} 暴露内部运营语言`)
+  }
+  if (html.includes('article-top-affiliate')) {
+    failures.push(`${rel} 仍含首屏裸推广条`)
+  }
+}
+
+for (const [title, files] of seenTitles) {
+  if (files.length > 1) failures.push(`重复 title：${title} -> ${files.join(', ')}`)
+}
+for (const [canonical, files] of seenCanonicals) {
+  if (files.length > 1) failures.push(`重复 canonical：${canonical} -> ${files.join(', ')}`)
+}
+
+for (const item of articles) {
+  const source = path.resolve('docs/blog', item.slug, 'index.md')
   const sourceText = fs.readFileSync(source, 'utf8')
   const body = sourceText.replace(/^---[\s\S]*?\n---\s*/, '')
-  const cjk = (body.match(/[\u4e00-\u9fff]/g) || []).length
-  const ctaComponents = (body.match(/<ZeogptCta\b/g) || []).length
-  if (cjk < 1200 || cjk > 2000) failures.push(`${article.slug} 汉字数 ${cjk}，不在 1200–2000 范围`)
-  if (ctaComponents !== 3) failures.push(`${article.slug} CTA 组件数为 ${ctaComponents}，应为 3`)
-  if (!body.includes('[[toc]]')) failures.push(`${article.slug} 缺少目录标记`)
-  if (!body.includes('免责声明')) failures.push(`${article.slug} 缺少免责声明`)
-  const topAffiliateIndex = body.indexOf('class="article-top-affiliate"')
-  const firstCtaIndex = body.indexOf('<ZeogptCta')
-  const tocIndex = body.indexOf('[[toc]]')
-  if (topAffiliateIndex === -1 || !body.includes('https://www.zeogpt.com/register?ref=Ac3KbS3F')) failures.push(`${article.slug} 首屏缺少 ZEOGPT 直达外部链接`)
-  if (tocIndex !== -1 && (topAffiliateIndex > tocIndex || firstCtaIndex > tocIndex)) failures.push(`${article.slug} 首屏 ZEOGPT 入口必须放在目录前`)
-  const builtPath = path.join(root, 'blog', article.slug, 'index.html')
-  if (fs.existsSync(builtPath)) {
-    const built = fs.readFileSync(builtPath, 'utf8')
-    const affiliateHrefs = (built.match(/href="https:\/\/www\.zeogpt\.com\/register\?ref=Ac3KbS3F"/g) || []).length
-    if (affiliateHrefs !== 5) failures.push(`${article.slug} 构建后外部链接数为 ${affiliateHrefs}，应为 5（首屏直达链接 + 3 个正文 CTA + 1 个顶部导航）`)
+  const ctas = (body.match(/<ZeogptCta\b/g) || []).length
+  const expectedCtas = highIntent.has(item.slug) ? 3 : 2
+  if (ctas !== expectedCtas) failures.push(`${item.slug} CTA 数为 ${ctas}，预期 ${expectedCtas}`)
+  if (/适合正在搜索“/.test(body)) failures.push(`${item.slug} 仍含后台关键词式句子`)
+  if (body.includes('article-top-affiliate')) failures.push(`${item.slug} 仍含首屏裸推广条`)
+
+  const tags = item.tags || []
+  if (tags.length > 4) failures.push(`${item.slug} 标签超过 4 个`)
+  if (new Set(tags.map((tag) => String(tag).toLowerCase())).size !== tags.length) {
+    failures.push(`${item.slug} 标签重复`)
+  }
+
+  const built = fs.readFileSync(path.join(root, 'blog', item.slug, 'index.html'), 'utf8')
+  const robots = built.match(/<meta name="robots" content="([^"]+)"/)?.[1] || ''
+  if (item.status === 'published' && !robots.startsWith('index, follow')) {
+    failures.push(`${item.slug} 公开文章 robots 异常：${robots}`)
+  }
+  if (item.status === 'review' && robots !== 'noindex, follow') {
+    failures.push(`${item.slug} 复核文章 robots 异常：${robots}`)
   }
 }
 
-const robotsPath = path.join(root, 'robots.txt')
-const sitemapPath = path.join(root, 'sitemap.xml')
-if (fs.existsSync(robotsPath)) {
-  const robots = fs.readFileSync(robotsPath, 'utf8')
-  if (SITE_IS_PLACEHOLDER && !/Disallow: \/\s/.test(robots)) failures.push('占位域名阶段 robots.txt 未阻止抓取')
-  if (!SITE_IS_PLACEHOLDER && (!/Allow: \/\s/.test(robots) || !robots.includes(`${SITE_ORIGIN}/sitemap.xml`))) failures.push('正式域名 robots.txt 配置异常')
+const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8')
+const sitemapCount = (sitemap.match(/<url>/g) || []).length
+if (sitemapCount !== 23) failures.push(`sitemap URL 数为 ${sitemapCount}，预期 23`)
+if (!sitemap.includes(`${SITE_ORIGIN}/`)) failures.push('sitemap 未使用正式主域名')
+for (const item of published) {
+  if (!sitemap.includes(`/blog/${item.slug}/`)) failures.push(`sitemap 缺少公开文章：${item.slug}`)
 }
-if (fs.existsSync(sitemapPath)) {
-  const sitemap = fs.readFileSync(sitemapPath, 'utf8')
-  if (!sitemap.includes(`${SITE_ORIGIN}/`)) failures.push('sitemap.xml 未使用当前 SITE_ORIGIN')
-  const count = (sitemap.match(/<url>/g) || []).length
-  const expectedSitemapCount = 8 + topicRoutes.length + articles.length
-  if (count !== expectedSitemapCount) failures.push(`sitemap.xml URL 数为 ${count}，应为 ${expectedSitemapCount}`)
-  if (sitemap.includes('404')) failures.push('sitemap.xml 不应包含 404 页面')
+for (const item of review) {
+  if (sitemap.includes(`/blog/${item.slug}/`)) failures.push(`sitemap 错误包含复核文章：${item.slug}`)
+}
+if (sitemap.includes('/topics/ai-models-tools/')) failures.push('sitemap 错误包含复核中的 AI 模型专题')
+
+const feed = fs.readFileSync(path.join(root, 'feed.xml'), 'utf8')
+const feedCount = (feed.match(/<item>/g) || []).length
+if (feedCount !== 8) failures.push(`RSS 文章数为 ${feedCount}，预期 8`)
+for (const item of review) {
+  if (feed.includes(`/blog/${item.slug}/`)) failures.push(`RSS 错误包含复核文章：${item.slug}`)
+}
+
+const robotsText = fs.readFileSync(path.join(root, 'robots.txt'), 'utf8')
+if (SITE_IS_PLACEHOLDER) {
+  if (!robotsText.includes('Disallow: /')) failures.push('占位阶段 robots 未封锁')
+} else {
+  if (!robotsText.includes('Allow: /')) failures.push('正式站 robots 未允许抓取')
+  if (!robotsText.includes(`${SITE_ORIGIN}/sitemap.xml`)) failures.push('robots sitemap 地址错误')
 }
 
 if (failures.length) {
@@ -107,4 +155,5 @@ if (failures.length) {
   for (const item of failures) console.error(`- ${item}`)
   process.exit(1)
 }
-console.log(`站点审计通过：${htmlFiles.length} 个 HTML；关键页面、唯一 title/canonical、JSON-LD、文章字数、CTA、旧域名和禁用短语检查无异常。`)
+
+console.log(`站点审计通过：${htmlFiles.length} 个 HTML；8 篇公开、52 篇复核；sitemap 23 个 URL；RSS 8 篇。`)

@@ -8,17 +8,7 @@ import {
   SITE_SUBTITLE
 } from '../../site.config.mjs'
 
-const staticDates: Record<string, string> = {
-  '/': BUILD_DATE,
-  '/blog/': BUILD_DATE,
-  '/zeogpt/': BUILD_DATE,
-  '/pricing-guide/': BUILD_DATE,
-  '/faq/': BUILD_DATE,
-  '/about/': BUILD_DATE,
-  '/disclaimer/': BUILD_DATE,
-  '/privacy/': BUILD_DATE
-}
-for (const article of articles) staticDates[`/blog/${article.slug}/`] = article.updated
+const publishedArticles = articles.filter((item) => item.status === 'published')
 
 function routeFromRelativePath(relativePath: string) {
   return `/${relativePath}`
@@ -30,69 +20,44 @@ function routeFromRelativePath(relativePath: string) {
 function articleSidebar() {
   const pick = (slugs: string[]) =>
     slugs
-      .map((slug) => articles.find((item) => item.slug === slug))
+      .map((slug) => publishedArticles.find((item) => item.slug === slug))
       .filter(Boolean)
       .map((item) => ({ text: item!.title, link: `/blog/${item!.slug}/` }))
 
   return [
     {
-      text: '使用指南',
+      text: '核心指南',
       collapsed: false,
       items: [
-        { text: '博客文章', link: '/blog/' },
-        { text: 'ChatGPT 官网入口', link: '/blog/chatgpt-official-entry-domestic-use/' },
-        { text: 'ChatGPT 中文版', link: '/blog/chatgpt-chinese-entry-guide/' },
-        { text: '官网打不开排查', link: '/blog/chatgpt-website-not-working/' },
-        { text: '镜像站安全检查', link: '/blog/chatgpt-mirror-site-safety/' }
-      ]
-    },
-    {
-      text: 'ChatGPT 教程',
-      collapsed: false,
-      items: pick([
-        'chatgpt-official-entry-domestic-use',
-        'chatgpt-chinese-entry-guide',
-        'chatgpt-website-not-working',
-        'chatgpt-plus-china-payment-guide',
-        'chatgpt-mirror-site-safety',
-        'chatgpt-account-registration-guide',
-        'chatgpt-mobile-use-guide',
-        'chatgpt-free-vs-plus'
-      ])
-    },
-    {
-      text: 'AI 模型',
-      collapsed: true,
-      items: pick([
-        'gemini-domestic-use-guide',
-        'gemini-vs-chatgpt',
-        'claude-domestic-use-guide',
-        'claude-vs-chatgpt-chinese',
-        'grok-domestic-use-guide',
-        'deepseek-use-guide',
-        'deepseek-vs-chatgpt',
-        'choose-ai-model-guide'
-      ])
-    },
-    {
-      text: '多模型方案',
-      collapsed: true,
-      items: [
-        { text: 'ZEOGPT 是什么', link: '/zeogpt/' },
-        { text: '套餐选择', link: '/pricing-guide/' },
+        { text: '全部已核验文章', link: '/blog/' },
         ...pick([
-          'what-is-zeogpt',
-          'zeogpt-register-guide',
-          'zeogpt-pricing-comparison',
-          'zeogpt-supported-models'
+          'chatgpt-official-entry-domestic-use',
+          'chatgpt-chinese-entry-guide',
+          'chatgpt-website-not-working',
+          'chatgpt-plus-china-payment-guide',
+          'chatgpt-mirror-site-safety'
         ])
       ]
     },
     {
-      text: '站点说明',
+      text: 'ZEOGPT 第三方服务',
+      collapsed: false,
+      items: [
+        { text: '第三方服务总览', link: '/zeogpt/' },
+        { text: '套餐核验方法', link: '/pricing-guide/' },
+        ...pick([
+          'what-is-zeogpt',
+          'zeogpt-register-guide',
+          'zeogpt-pricing-comparison'
+        ])
+      ]
+    },
+    {
+      text: '站点与编辑说明',
       collapsed: true,
       items: [
         { text: '关于本站', link: '/about/' },
+        { text: '编辑与更正政策', link: '/editorial-policy/' },
         { text: '免责声明', link: '/disclaimer/' },
         { text: '隐私说明', link: '/privacy/' }
       ]
@@ -121,6 +86,7 @@ export default defineConfig({
   ],
   transformPageData(pageData) {
     if (pageData.relativePath === '404.md') return
+
     const route = routeFromRelativePath(pageData.relativePath)
     const canonical = `${SITE_ORIGIN}${route}`
     const fm = pageData.frontmatter
@@ -128,6 +94,8 @@ export default defineConfig({
     const description = fm.description || SITE_SUBTITLE
     const pageType = fm.article ? 'article' : 'website'
     const image = `${SITE_ORIGIN}/og-default.png`
+    const isReview = fm.noindex === true || fm.contentStatus === 'review'
+    const shouldIndex = !SITE_IS_PLACEHOLDER && !isReview
 
     fm.head ??= []
     fm.head.push(
@@ -142,30 +110,46 @@ export default defineConfig({
       ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
       ['meta', { name: 'twitter:title', content: title }],
       ['meta', { name: 'twitter:description', content: description }],
-      ['meta', { name: 'twitter:image', content: image }]
+      ['meta', { name: 'twitter:image', content: image }],
+      ['meta', {
+        name: 'robots',
+        content: shouldIndex
+          ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+          : 'noindex, follow'
+      }]
     )
-    fm.head.push(['meta', {
-      name: 'robots',
-      content: SITE_IS_PLACEHOLDER
-        ? 'noindex, nofollow'
-        : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
-    }])
 
     const breadcrumbs: any[] = [
       { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE_ORIGIN}/` }
     ]
     if (route.startsWith('/blog/')) {
       breadcrumbs.push({ '@type': 'ListItem', position: 2, name: '博客', item: `${SITE_ORIGIN}/blog/` })
-      if (route !== '/blog/') breadcrumbs.push({
-        '@type': 'ListItem', position: 3, name: fm.h1 || pageData.title, item: canonical
-      })
+      if (route !== '/blog/') {
+        breadcrumbs.push({
+          '@type': 'ListItem',
+          position: 3,
+          name: fm.h1 || pageData.title,
+          item: canonical
+        })
+      }
     } else if (route !== '/') {
-      breadcrumbs.push({ '@type': 'ListItem', position: 2, name: fm.h1 || pageData.title, item: canonical })
+      breadcrumbs.push({
+        '@type': 'ListItem',
+        position: 2,
+        name: fm.h1 || pageData.title,
+        item: canonical
+      })
     }
 
     const graph: any[] = [
       {
-        '@type': route === '/' ? 'WebSite' : route === '/blog/' ? 'CollectionPage' : fm.article ? 'Article' : 'WebPage',
+        '@type': route === '/'
+          ? 'WebSite'
+          : route === '/blog/'
+            ? 'CollectionPage'
+            : fm.article
+              ? 'Article'
+              : 'WebPage',
         '@id': `${canonical}#primary`,
         url: canonical,
         name: fm.h1 || pageData.title,
@@ -176,10 +160,18 @@ export default defineConfig({
         ...(fm.article ? {
           datePublished: fm.date,
           dateModified: fm.updated || fm.date,
-          author: { '@type': 'Organization', name: fm.author || 'ChatGPT中文指南编辑部' },
-          publisher: { '@type': 'Organization', name: SITE_NAME, url: `${SITE_ORIGIN}/` },
+          author: {
+            '@type': 'Organization',
+            name: fm.author || 'ChatGPT中文指南编辑部',
+            url: `${SITE_ORIGIN}/about/`
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: SITE_NAME,
+            url: `${SITE_ORIGIN}/`
+          },
           articleSection: fm.category,
-          keywords: Array.isArray(fm.tags) ? fm.tags.join(',') : fm.tags
+          keywords: Array.isArray(fm.tags) ? fm.tags.slice(0, 4).join(',') : fm.tags
         } : {})
       },
       { '@type': 'BreadcrumbList', itemListElement: breadcrumbs }
@@ -191,10 +183,11 @@ export default defineConfig({
         '@id': `${SITE_ORIGIN}/#organization`,
         name: SITE_NAME,
         url: `${SITE_ORIGIN}/`,
-        description: '中文 ChatGPT 与 AI 工具教程站，非 OpenAI 官方网站。'
+        description: '独立中文 ChatGPT 与 AI 工具教程站，非 OpenAI 官方网站。'
       })
     }
-    if (Array.isArray(fm.faqs) && fm.faqs.length) {
+
+    if (shouldIndex && Array.isArray(fm.faqs) && fm.faqs.length) {
       graph.push({
         '@type': 'FAQPage',
         mainEntity: fm.faqs.map((faq: any) => ({
@@ -204,7 +197,10 @@ export default defineConfig({
         }))
       })
     }
-    fm.head.push(['script', { type: 'application/ld+json' },
+
+    fm.head.push([
+      'script',
+      { type: 'application/ld+json' },
       JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })
     ])
   },
@@ -213,8 +209,11 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '教程博客', link: '/blog/' },
-      { text: '免责声明', link: '/disclaimer/' },
-      { text: 'ZEOGPT 注册', link: 'https://www.zeogpt.com/register?ref=Ac3KbS3F' }
+      { text: '内容标准', link: '/editorial-policy/' },
+      {
+        text: 'ZEOGPT 套餐（第三方）',
+        link: 'https://www.zeogpt.com/register?ref=Ac3KbS3F'
+      }
     ],
     sidebar: {
       '/blog/': articleSidebar(),
@@ -224,8 +223,8 @@ export default defineConfig({
     },
     outline: { level: [2, 3], label: '本文目录' },
     footer: {
-      message: '本站不是 OpenAI 官方网站，仅提供 AI 工具教程与第三方服务介绍。ZEOGPT 为第三方服务，使用前请以实时页面为准。',
-      copyright: '© 2026 ChatGPT中文指南 · 不承诺搜索引擎收录或排名'
+      message: '本站不是 OpenAI 官方网站。ZEOGPT 为第三方服务，相关链接可能属于推广链接；使用前请核对实时规则。',
+      copyright: '© 2026 ChatGPT中文指南 · 不承诺搜索引擎收录、排名或第三方服务可用性'
     },
     docFooter: { prev: '上一篇', next: '下一篇' },
     returnToTopLabel: '返回顶部',

@@ -1,92 +1,36 @@
 ---
-title: "ChatGPT 国内使用与 ZEOGPT 常见问题 | ChatGPT中文指南"
-description: "解答 ChatGPT 官网入口、中文版、国内使用、Plus 支付、镜像站安全、ZEOGPT 注册、套餐、微信支付、隐私与非官方声明。"
-h1: "ChatGPT 国内使用与 ZEOGPT 常见问题"
-updated: "2026-06-22"
-outline: [2, 3]
-faqs:
-  - question: "ChatGPT 官方入口是什么？"
-    answer: "ChatGPT 官方网页入口以 https://chatgpt.com/ 为准，OpenAI 公司与产品信息以 https://openai.com/ 为准。"
-  - question: "是否存在由 OpenAI 运营的独立中文版本网站？"
-    answer: "不要把第三方中文页面称为官方产品。ChatGPT 官方服务可以使用中文对话，但官方入口仍以 chatgpt.com 为准。"
-  - question: "本站是 OpenAI 官方网站吗？"
-    answer: "不是。本站是独立的中文教程与第三方服务介绍站，不代表 OpenAI。"
-  - question: "ZEOGPT 是 OpenAI 官方服务吗？"
-    answer: "不是。ZEOGPT 应被视为第三方 AI 模型订阅与镜像服务。"
-  - question: "ZEOGPT 支持微信支付吗？"
-    answer: "截至 2026 年 6 月 22 日，其公开首页和 FAQ 写明支持微信支付；付款前仍需以当前结算页为准。"
-  - question: "第三方镜像站安全吗？"
-    answer: "不能一概而论。应检查运营主体、隐私政策、密码要求、支付通道、数据保存、退款规则、客服渠道和稳定性记录。"
-  - question: "可以保证 Bing 收录本站文章吗？"
-    answer: "不能。规范静态 HTML、sitemap、内链和原创内容可提高发现与抓取概率，但不保证收录、排名、标题或摘要展示。"
+title: "常见问题 | ChatGPT中文指南"
+description: "回答本站是否官方、ChatGPT 官方入口、中文使用、第三方服务、ZEOGPT 推广关系和文章更新机制等常见问题。"
+h1: "常见问题"
+updated: "2026-06-25"
 ---
 
-# ChatGPT 国内使用与 ZEOGPT 常见问题
+# 常见问题
 
-本页集中回答官网入口、中文使用、Plus 付款、第三方镜像、ZEOGPT 注册与套餐等高频问题。涉及服务状态、价格、额度与地区支持时，请优先核对官方或平台当前页面。
+## 本站是 OpenAI 官方网站吗？
 
-[[toc]]
+不是。本站是独立中文教程站。ChatGPT 官方入口和 OpenAI 官方信息应以其官方域名与帮助中心为准。
 
-<ZeogptCta variant="agent" title="常见问题看完了？可以查看 ZEOGPT 继续操作" text="如果你的问题已经解决，下一步可以进入 ZEOGPT 查看实时注册、套餐和模型入口。" label="查看 ZEOGPT" />
+## “ChatGPT 中文版”是否代表官方独立中文站？
 
-## ChatGPT 官网相关问题
+不一定。ChatGPT 可以使用中文，某些页面也可能显示中文，但第三方中文界面、中文域名或中文客服不等于 OpenAI 官方服务。
 
-<div class="faq-list">
-<details open><summary>ChatGPT 官方入口是什么？</summary><p>ChatGPT 官方网页入口以 <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">https://chatgpt.com/</a> 为准；OpenAI 公司、研究与产品信息以 <a href="https://openai.com/" target="_blank" rel="noopener noreferrer">https://openai.com/</a> 为准。</p></details>
-<details><summary>ChatGPT 官网打不开怎么办？</summary><p>先检查网址拼写、OpenAI 服务状态、浏览器缓存与 Cookie、登录方式、设备时间和当前地区是否在官方支持范围内。完整步骤见<a href="/blog/chatgpt-website-not-working/">官网打不开排查教程</a>。</p></details>
-<details><summary>国内用户最先要确认什么？</summary><p>先查看 OpenAI 当前支持国家和地区及其服务条款，并遵守所在地法律和平台规则。本站不提供绕过地区限制或规避风控的方法。</p></details>
-</div>
+## 为什么博客只公开少量文章？
 
-## 中文使用相关问题
+项目中保留了更多选题草稿，但只有完成原创补充、事实核验、推广披露和构建验收的文章才会进入博客列表、RSS 和 sitemap。其余页面暂时 `noindex`，避免批量模板内容被当作正式文章发布。
 
-<div class="faq-list">
-<details><summary>有没有由 OpenAI 运营的独立中文版本？</summary><p>不应把第三方镜像或聚合站称为官方产品。ChatGPT 官方服务可以进行中文对话，但官方入口仍是 chatgpt.com。</p></details>
-<details><summary>中文镜像站等于 ChatGPT官网吗？</summary><p>不等于。第三方镜像有自己的账号、套餐、数据处理和售后规则，购买镜像套餐通常不会把 OpenAI 账号升级为 ChatGPT Plus。</p></details>
-</div>
+## ZEOGPT 是 OpenAI 官方服务吗？
 
-## ChatGPT Plus 与支付
+不是。ZEOGPT 是独立第三方平台。使用前应核对其实时套餐、模型、额度、账号、隐私、付款、续费和退款规则。
 
-<div class="faq-list">
-<details><summary>ChatGPT Plus 官方价格是多少？</summary><p>OpenAI 帮助中心在 2026 年 6 月公开说明 Plus 为每月 20 美元，但税费、币种和可用方案可能变化，应以当前结算页为准。</p></details>
-<details><summary>国内常用支付方式一定能购买吗？</summary><p>不一定。支付方式因国家、地区和产品而异。若考虑第三方服务，应关注账号归属、敏感信息、退款和风控风险。</p></details>
-<details><summary>ZEOGPT 套餐等于官方 ChatGPT Plus 吗？</summary><p>不等于。ZEOGPT 是独立的第三方订阅与镜像服务；其套餐命名属于该平台。</p></details>
-</div>
+## ZEOGPT 链接是否属于推广链接？
 
-<ZeogptCta title="需要进一步了解 ZEOGPT？" text="建议先阅读 ZEOGPT 介绍、套餐快照和镜像站安全文章，再决定是否进入第三方注册页。" label="查看 ZEOGPT AI 模型订阅入口" />
+部分链接带推广参数，本站可能获得推广收益。页面会明确标注“第三方服务”和“推广链接”，这不构成官方背书或稳定性保证。
 
-## ZEOGPT 注册与套餐
+## 文章日期是什么意思？
 
-<div class="faq-list">
-<details><summary>ZEOGPT 怎么注册？</summary><p>公开注册页要求邮箱、邮箱验证码和密码，并提示验证码 5 分钟内有效、密码至少 8 位且包含字母与数字。详情见<a href="/blog/zeogpt-register-guide/">ZEOGPT 注册教程</a>。</p></details>
-<details><summary>支持哪些模型？</summary><p>公开首页列出 GPT、Gemini、Claude、Grok、DeepSeek 等模型。具体版本、工具、次数和状态以当前页面为准。</p></details>
-<details><summary>三档套餐怎么选？</summary><p>轻度用户先看 Plus；高频写作、代码或资料处理可评估 Pro 5x；明确需要大额度与 Codex 的重度用户再评估 Pro 20x。详见<a href="/pricing-guide/">套餐说明页</a>。</p></details>
-<details><summary>支持微信支付吗？</summary><p>截至 2026 年 6 月 22 日，其首页与 FAQ 公开写明支持微信支付。支付前仍要核对金额、订单号和退款规则。</p></details>
-<details><summary>可以退款吗？</summary><p>其公开 FAQ 写明虚拟产品原则上售出后不可退款，特殊原因可能扣除 10% 手续费及已使用天数。</p></details>
-</div>
+“首次发布”表示首次公开日期，“最近更新”表示正文实质变化日期，“信息核验”表示最近一次重新检查易变事实和主要链接的日期。
 
-## 隐私和账号安全
+## 发现错误如何处理？
 
-<div class="faq-list">
-<details><summary>看到 HTTPS 就说明镜像站安全吗？</summary><p>不是。HTTPS 只说明传输链路加密，不等于运营主体可信、不会保存对话或一定能退款。</p></details>
-<details><summary>可以把 OpenAI 密码交给代充或镜像站吗？</summary><p>不建议提供 OpenAI 密码、邮箱密码、支付密码、恢复码或无关验证码。</p></details>
-<details><summary>哪些内容不应输入第三方 AI 平台？</summary><p>账号密码、身份证件、银行卡信息、客户隐私、商业秘密、未公开代码、医疗记录和其他受保密义务约束的数据。</p></details>
-</div>
-
-## 关于本站与搜索引擎
-
-<div class="faq-list">
-<details><summary>本站是 OpenAI 或 ZEOGPT 官方网站吗？</summary><p>不是。本站是独立教程站。第三方注册，本站可能获得，但不会据此宣称官方合作。</p></details>
-<details><summary>本站能保证 Bing 收录或排名首页吗？</summary><p>不能。静态 HTML、规范 canonical、sitemap、内链、原创内容和持续更新可以改善抓取与理解，但收录、标题、摘要和排名由搜索引擎决定。</p></details>
-</div>
-
-<div class="disclaimer-box"><strong>更新提示：</strong>AI 产品变化快。本文按 2026 年 6 月 22 日公开信息整理，后续应定期复核。</div>
-
-## 下一步：直接查看 ZEOGPT
-
-<ZeogptCta variant="agent" title="教程看完了，下一步就是查看 ZEOGPT" text="如果你已经确认需要 ChatGPT 镜像和多模型 AI 入口，可以直接进入 ZEOGPT 注册页查看实时套餐、模型和额度。" label="查看 ZEOGPT" />
-
-## 我应该什么时候直接查看 ZEOGPT？
-
-如果你已经知道自己需要的是 ChatGPT 镜像、多模型 AI 入口、国内更方便的使用方式，或者想直接看套餐和模型列表，就可以直接查看 ZEOGPT。
-
-<ZeogptCta variant="agent" title="已经确认需求？可以查看 ZEOGPT" text="进入注册页后按实时页面查看套餐、模型、额度和付款规则。" label="查看 ZEOGPT" />
+请记录页面地址、具体错误、建议修改和可核验来源，通过项目维护渠道反馈。编辑部会按影响程度修正、补充更正说明、合并或暂时下线。

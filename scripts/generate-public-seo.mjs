@@ -6,45 +6,50 @@ import { BUILD_DATE, SITE_IS_PLACEHOLDER, SITE_NAME, SITE_ORIGIN } from '../site
 const publicDir = path.resolve('docs/public')
 fs.mkdirSync(publicDir, { recursive: true })
 
+const published = articles.filter((item) => item.status === 'published')
 const robots = SITE_IS_PLACEHOLDER
-  ? `# 域名尚未配置：防止测试站误收录。\nUser-agent: *\nDisallow: /\n\nSitemap: ${SITE_ORIGIN}/sitemap.xml\n`
+  ? `User-agent: *\nDisallow: /\n\nSitemap: ${SITE_ORIGIN}/sitemap.xml\n`
   : `User-agent: *\nAllow: /\n\nSitemap: ${SITE_ORIGIN}/sitemap.xml\n`
 fs.writeFileSync(path.join(publicDir, 'robots.txt'), robots)
 
 const escapeXml = (value) => String(value).replace(/[<>&'"]/g, (c) => ({
-  '<':'&lt;','>':'&gt;','&':'&amp;',"'":'&apos;','"':'&quot;'
+  '<': '&lt;', '>': '&gt;', '&': '&amp;', "'": '&apos;', '"': '&quot;'
 }[c]))
 
 const staticRoutes = [
   { path: '/', lastmod: BUILD_DATE, changefreq: 'weekly', priority: '1.0' },
   { path: '/blog/', lastmod: BUILD_DATE, changefreq: 'weekly', priority: '0.9' },
-  { path: '/zeogpt/', lastmod: BUILD_DATE, changefreq: 'monthly', priority: '0.8' },
-  { path: '/pricing-guide/', lastmod: BUILD_DATE, changefreq: 'monthly', priority: '0.8' },
-  { path: '/faq/', lastmod: BUILD_DATE, changefreq: 'monthly', priority: '0.8' },
+  { path: '/zeogpt/', lastmod: BUILD_DATE, changefreq: 'monthly', priority: '0.7' },
+  { path: '/pricing-guide/', lastmod: BUILD_DATE, changefreq: 'monthly', priority: '0.7' },
+  { path: '/faq/', lastmod: BUILD_DATE, changefreq: 'monthly', priority: '0.7' },
   { path: '/about/', lastmod: BUILD_DATE, changefreq: 'monthly', priority: '0.5' },
+  { path: '/editorial-policy/', lastmod: BUILD_DATE, changefreq: 'monthly', priority: '0.5' },
   { path: '/privacy/', lastmod: BUILD_DATE, changefreq: 'yearly', priority: '0.3' },
   { path: '/disclaimer/', lastmod: BUILD_DATE, changefreq: 'yearly', priority: '0.3' }
 ]
 
-const topicRoutes = [
+const indexedTopics = [
   '/topics/chatgpt-official-entry/',
   '/topics/chatgpt-china-use/',
   '/topics/chatgpt-chinese-version/',
   '/topics/chatgpt-plus-payment/',
   '/topics/chatgpt-mirror-safety/',
-  '/topics/zeogpt-guide/',
-  '/topics/ai-models-tools/'
-].map((route) => ({ path: route, lastmod: BUILD_DATE, changefreq: 'weekly', priority: '0.85' }))
+  '/topics/zeogpt-guide/'
+].map((route) => ({
+  path: route,
+  lastmod: BUILD_DATE,
+  changefreq: 'weekly',
+  priority: '0.75'
+}))
 
-const articleRoutes = articles.map((item) => ({
+const articleRoutes = published.map((item) => ({
   path: `/blog/${item.slug}/`,
-  lastmod: item.updated,
+  lastmod: item.updated || item.date,
   changefreq: 'monthly',
   priority: '0.8'
 }))
 
-const routes = [...staticRoutes, ...topicRoutes, ...articleRoutes]
-
+const routes = [...staticRoutes, ...indexedTopics, ...articleRoutes]
 const sitemapUrls = routes.map((route) => `  <url>
     <loc>${escapeXml(`${SITE_ORIGIN}${route.path}`)}</loc>
     <lastmod>${route.lastmod}</lastmod>
@@ -59,19 +64,20 @@ ${sitemapUrls}
 `
 fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemap)
 
-const items = articles.map((item) => `  <item>
+const items = published.map((item) => `  <item>
     <title>${escapeXml(item.title)}</title>
     <link>${SITE_ORIGIN}/blog/${item.slug}/</link>
     <guid>${SITE_ORIGIN}/blog/${item.slug}/</guid>
     <pubDate>${new Date(`${item.date}T00:00:00Z`).toUTCString()}</pubDate>
     <description>${escapeXml(item.description)}</description>
   </item>`).join('\n')
+
 const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 <channel>
   <title>${SITE_NAME}</title>
   <link>${SITE_ORIGIN}/</link>
-  <description>ChatGPT 国内使用教程与 ZEOGPT 镜像订阅说明</description>
+  <description>已核验的 ChatGPT 中文使用、支付、安全与第三方服务指南</description>
   <language>zh-CN</language>
 ${items}
 </channel>
@@ -79,4 +85,4 @@ ${items}
 `
 fs.writeFileSync(path.join(publicDir, 'feed.xml'), rss)
 
-console.log(`[seo] robots.txt, sitemap.xml (${routes.length} URLs) and feed.xml generated for ${SITE_ORIGIN}${SITE_IS_PLACEHOLDER ? ' (placeholder/noindex)' : ''}`)
+console.log(`[seo] generated robots.txt, sitemap.xml (${routes.length} URLs) and feed.xml (${published.length} articles) for ${SITE_ORIGIN}`)

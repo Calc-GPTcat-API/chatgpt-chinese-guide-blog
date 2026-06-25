@@ -6,3 +6,6 @@ node_modules/
 !.env.example
 docs/.vitepress/cache/
 docs/.vitepress/temp/
+docs/.vitepress/dist/
+.vercel/
+exports/

@@ -2,59 +2,21 @@
 import articles from '../../../../content-data/published-articles.json'
 
 const registerUrl = 'https://www.zeogpt.com/register?ref=Ac3KbS3F'
-const featured = articles.filter((item) => item.featured).slice(0, 6)
-
-const entryCards = [
-  {
-    index: '01',
-    label: '使用教程',
-    title: 'ChatGPT 中文使用指南',
-    text: '先看官网入口、中文使用、访问排查和 Plus 支付等常见问题。',
-    link: '/blog/',
-    action: '查看教程'
-  },
-  {
-    index: '02',
-    label: '方案比较',
-    title: '官方入口与第三方方案',
-    text: '比较官方 ChatGPT、镜像站和多模型聚合平台的差异。',
-    link: '/blog/chatgpt-mirror-vs-official/',
-    action: '查看区别'
-  },
-  {
-    index: '03',
-    label: '多模型入口',
-    title: 'ZEOGPT 多模型方案',
-    text: '已经确认需要第三方多模型入口时，可直接核对 ZEOGPT 注册与套餐。',
-    link: registerUrl,
-    action: '查看套餐',
-    external: true
-  }
-]
+const published = articles.filter((item) => item.status === 'published')
+const featured = published.filter((item) => item.featured).slice(0, 6)
 
 const steps = [
-  ['确认问题', '先判断你是在找 ChatGPT 官网入口、中文使用、Plus 支付，还是镜像站和多模型方案。'],
-  ['阅读教程', '通过博客文章了解官方入口、第三方服务边界、付款和账号注意事项。'],
-  ['比较方案', '如果官方入口不适合，再比较 ZEOGPT 等第三方多模型方案的套餐和模型。'],
-  ['开始使用', '确认需求后，再进入对应入口完成注册、付款或继续使用。']
+  ['核对入口', '先确认官方域名、页面主体和服务状态，避免只凭标题或 Logo 判断。'],
+  ['解决问题', '按注册、登录、中文使用、Plus 支付或故障类型查找对应教程。'],
+  ['比较边界', '区分 OpenAI 官方服务、镜像站、代充和第三方多模型平台。'],
+  ['再做选择', '涉及注册或付款时，重新核对实时价格、额度、续费、退款和隐私规则。']
 ]
 
 const checks = [
-  '不复用 OpenAI、邮箱或支付账户密码',
-  '确认套餐价格、额度、自动续费和退款规则',
-  '不要把第三方镜像当成 OpenAI 官方服务',
-  '敏感资料、验证码和付款信息先核验再提交'
-]
-
-const keywords = [
-  ['ChatGPT 官网入口', '/blog/chatgpt-official-entry-domestic-use/'],
-  ['ChatGPT 中文版', '/blog/chatgpt-chinese-entry-guide/'],
-  ['ChatGPT 国内使用', '/blog/chatgpt-official-entry-domestic-use/'],
-  ['ChatGPT Plus 国内充值', '/blog/chatgpt-plus-china-payment-guide/'],
-  ['ChatGPT 官网打不开', '/blog/chatgpt-website-not-working/'],
-  ['ChatGPT 镜像站安全吗', '/blog/chatgpt-mirror-site-safety/'],
-  ['ZEOGPT 注册教程', '/blog/zeogpt-register-guide/'],
-  ['ZEOGPT 套餐区别', '/blog/zeogpt-pricing-comparison/']
+  '不复用邮箱、OpenAI 或支付账户密码',
+  '付款前确认周期、额度、续费和退款规则',
+  '第三方中文界面不等于 OpenAI 官方中文版',
+  '敏感资料、验证码和公司文件不随意上传'
 ]
 </script>
 
@@ -62,58 +24,43 @@ const keywords = [
   <main class="premium-home">
     <section class="hero-section exact-old-hero">
       <div class="hero-copy">
-        <p class="eyebrow">ChatGPT 中文使用指南 / 官网入口 / 多模型方案</p>
+        <p class="eyebrow">入口核验 / 中文教程 / 付款与安全</p>
         <h1 class="hero-title">
           <span class="title-line title-main">ChatGPT</span>
           <span class="title-line title-sub">中文指南</span>
         </h1>
         <p class="subtitle">
-          面向中文用户整理 ChatGPT 官网入口、中文使用、访问排查、Plus 支付、镜像站选择与多模型 AI 使用方案。
-          先讲清楚入口、教程、方案比较和 ZEOGPT 注册套餐，确认适合后再进入对应页面。
+          面向中文用户整理 ChatGPT 官网入口、中文使用、访问排查、Plus 支付和第三方服务风险。
+          先获得可执行答案，再决定是否注册、订阅或使用第三方平台。
         </p>
-
         <div class="hero-actions">
-          <a class="primary-btn" href="/blog/">查看教程博客</a>
-          <a class="secondary-btn" :href="registerUrl" target="_blank" rel="sponsored nofollow noopener noreferrer">查看 ZEOGPT 注册与套餐</a>
-          <a class="ghost-btn" href="/pricing-guide/">先看套餐区别</a>
+          <a class="primary-btn" href="/blog/">按问题查教程</a>
+          <a class="ghost-btn" href="/editorial-policy/">查看内容标准</a>
+          <a class="secondary-btn" :href="registerUrl" target="_blank"
+             rel="sponsored nofollow noopener noreferrer">ZEOGPT 第三方页面</a>
         </div>
-
-        <div class="trust-row">
-          <span>官网入口</span>
-          <span>中文使用</span>
-          <span>Plus 支付</span>
-          <span>多模型方案</span>
-        </div>
+        <p class="hero-disclosure">
+          ZEOGPT 链接属于推广链接；该平台并非 OpenAI 官方服务，进入前请先查看第三方边界与实时规则。
+        </p>
       </div>
 
       <div class="hero-panel conversion-card">
-        <div class="status-pill">先判断，再选择</div>
-        <h3>进入 ZEOGPT 前先确认</h3>
-        <div class="flow-item">
-          <span>1</span>
-          <p>是否只是需要 ChatGPT 中文使用教程，还是确实需要第三方多模型入口</p>
-        </div>
-        <div class="flow-item">
-          <span>2</span>
-          <p>是否已经比较官网入口、镜像站和多模型聚合平台的差异</p>
-        </div>
-        <div class="flow-item">
-          <span>3</span>
-          <p>是否已经看清套餐、模型、额度、付款和售后规则</p>
-        </div>
-        <a class="panel-link" :href="registerUrl" target="_blank" rel="sponsored nofollow noopener noreferrer">查看 ZEOGPT 入口 →</a>
+        <div class="status-pill">先核验，再操作</div>
+        <h3>使用任何 AI 服务前检查</h3>
+        <div class="flow-item"><span>1</span><p>完整域名、运营主体和官方来源是否一致</p></div>
+        <div class="flow-item"><span>2</span><p>账号、付款、隐私、自动续费和退款规则是否清楚</p></div>
+        <div class="flow-item"><span>3</span><p>页面上的价格、模型和额度是否为当前实时信息</p></div>
+        <a class="panel-link" href="/blog/chatgpt-mirror-site-safety/">查看安全核验清单 →</a>
       </div>
     </section>
-<section class="premium-section">
+
+    <section class="premium-section">
       <div class="premium-section__head">
-        <div>
-          <p class="eyebrow">新手路径</p>
-          <h2>新手路径</h2>
-        </div>
-        <p>先确认自己遇到的是入口、中文使用、Plus 支付还是镜像站问题，再根据需求选择官方入口或第三方多模型方案。</p>
+        <div><p class="eyebrow">使用路径</p><h2>从问题出发，不从推广入口出发</h2></div>
+        <p>四步完成入口判断、故障排查、方案比较和付款前核验。</p>
       </div>
       <div class="path-grid">
-        <a v-for="(step, index) in steps" :key="step[0]" class="path-card" :href="index === 3 ? '/zeogpt/' : '/blog/'">
+        <a v-for="(step, index) in steps" :key="step[0]" class="path-card" href="/blog/">
           <span>{{ String(index + 1).padStart(2, '0') }}</span>
           <h3>{{ step[0] }}</h3>
           <p>{{ step[1] }}</p>
@@ -123,46 +70,28 @@ const keywords = [
 
     <section class="premium-section twin-panel">
       <div class="glass-panel feature-panel">
-        <p class="eyebrow">多模型方案</p>
-        <h2>想快速使用多模型 AI，可以直接核对 ZEOGPT</h2>
-        <p>
-          ZEOGPT 是第三方多模型服务入口，页面展示 ChatGPT 镜像以及 GPT、Claude、Gemini、Grok、DeepSeek 等模型方案。
-        </p>
-        <ul class="check-list">
-          <li v-for="item in checks" :key="item">{{ item }}</li>
-        </ul>
+        <p class="eyebrow">第三方服务边界</p>
+        <h2>需要多模型入口时，先读清楚风险与规则</h2>
+        <p>第三方平台可能提供中文界面、本地付款或多模型聚合，但它有独立账号体系、服务条款、隐私政策和稳定性风险。</p>
+        <ul class="check-list"><li v-for="item in checks" :key="item">{{ item }}</li></ul>
         <div class="panel-actions panel-actions--conversion">
-          <a :href="registerUrl" target="_blank" rel="sponsored nofollow noopener noreferrer">立即查看 ZEOGPT 注册与套餐</a>
-          <a href="/pricing-guide/">查看套餐怎么选</a>
-          <a href="/blog/zeogpt-register-guide/">注册教程</a>
+          <a href="/blog/what-is-zeogpt/">先了解 ZEOGPT 是什么</a>
+          <a href="/pricing-guide/">查看套餐核验方法</a>
+          <a :href="registerUrl" target="_blank" rel="sponsored nofollow noopener noreferrer">打开第三方实时页面</a>
         </div>
       </div>
+
       <div class="comparison-board">
-        <div>
-          <span>搜索教程</span>
-          <strong>承接流量</strong>
-          <p>用 ChatGPT 官网入口、中文版、Plus 充值等文章承接 Bing 搜索用户。</p>
-        </div>
-        <div>
-          <span>ZEOGPT 入口</span>
-          <strong>完成使用</strong>
-          <p>当用户需要多模型、镜像体验或更方便的使用入口时，引导查看 ZEOGPT。</p>
-        </div>
-        <div>
-          <span>持续内链</span>
-          <strong>反复触达</strong>
-          <p>首页、博客页、专题页、文章页、FAQ 和入口按钮共同指向 ZEOGPT。</p>
-        </div>
+        <div><span>查教程</span><strong>按问题定位</strong><p>入口、中文、支付、访问或安全问题分别处理，不把所有需求都导向同一产品。</p></div>
+        <div><span>比方案</span><strong>核对官方与第三方</strong><p>比较账号归属、数据处理、模型来源、价格和售后，而不是只看宣传标题。</p></div>
+        <div><span>做决定</span><strong>以实时规则为准</strong><p>价格、模型、额度和地区支持会变化，购买前回到产品公开页面再次确认。</p></div>
       </div>
     </section>
 
     <section class="premium-section">
       <div class="premium-section__head">
-        <div>
-          <p class="eyebrow">推荐教程</p>
-          <h2>推荐阅读的核心文章</h2>
-        </div>
-        <a class="section-link" href="/blog/">全部文章 →</a>
+        <div><p class="eyebrow">已核验内容</p><h2>推荐先读的核心文章</h2></div>
+        <a class="section-link" href="/blog/">查看全部公开文章 →</a>
       </div>
       <div class="premium-article-grid">
         <article v-for="article in featured" :key="article.slug" class="premium-article-card">
@@ -177,26 +106,15 @@ const keywords = [
       </div>
     </section>
 
-    <section class="premium-section keyword-panel">
-      <div>
-        <p class="eyebrow">热门搜索</p>
-        <h2>热门搜索入口</h2>
-        <p>围绕用户真实搜索词建立内链，让首页、博客页和核心文章互相支撑。</p>
-      </div>
-      <div class="keyword-cloud premium-keywords">
-        <a v-for="item in keywords" :key="item[0]" :href="item[1]">{{ item[0] }}</a>
-      </div>
-    </section>
-
     <section class="final-cta">
       <div>
-        <p class="eyebrow">下一步</p>
-        <h2>下一步怎么选？</h2>
-        <p>如果你已经确认需要第三方多模型入口，可以直接核对 ZEOGPT 注册与套餐；如果还不确定，继续阅读教程和套餐说明。</p>
+        <p class="eyebrow">仍不确定？</p>
+        <h2>先阅读教程，再处理注册或付款</h2>
+        <p>本站不会把第三方服务描述成 OpenAI 官方入口，也不承诺长期稳定、无限额度或一定退款。</p>
       </div>
       <div class="premium-actions">
-        <a class="premium-btn premium-btn--primary" :href="registerUrl" target="_blank" rel="sponsored nofollow noopener noreferrer">立即查看 ZEOGPT 注册与套餐</a>
-        <a class="premium-btn premium-btn--light" href="/blog/">继续看教程</a>
+        <a class="premium-btn premium-btn--primary" href="/blog/">继续看教程</a>
+        <a class="premium-btn premium-btn--light" href="/disclaimer/">查看免责声明</a>
       </div>
     </section>
   </main>

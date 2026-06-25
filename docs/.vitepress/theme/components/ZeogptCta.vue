@@ -9,10 +9,10 @@ const props = withDefaults(defineProps<{
   variant?: 'soft' | 'card' | 'compact' | 'conversion' | 'agent'
 }>(), {
   title: '需要第三方多模型入口？',
-  text: '如果你的目标是 ChatGPT 镜像或多模型 AI 统一入口，ZEOGPT 可作为第三方方案对比；进入后先核对实时套餐、模型和付款规则。',
-  label: '查看 ZEOGPT 注册与套餐',
+  text: '先核对实时套餐、模型、额度、付款和退款规则，再决定是否注册。',
+  label: '查看 ZEOGPT 实时页面',
   href: 'https://www.zeogpt.com/register?ref=Ac3KbS3F',
-  secondaryLabel: '先看套餐区别',
+  secondaryLabel: '先看套餐核验方法',
   secondaryHref: '/pricing-guide/',
   variant: 'agent'
 })
@@ -21,15 +21,24 @@ const secondaryExternal = props.secondaryHref.startsWith('http')
 </script>
 
 <template>
-  <aside class="zeogpt-cta" :class="`zeogpt-cta--${variant}`" aria-label="ZEOGPT 推荐入口">
+  <aside class="zeogpt-cta" :class="`zeogpt-cta--${variant}`" aria-label="第三方服务说明与入口">
     <div>
+      <span class="zeogpt-cta__label">第三方服务 · 推广链接</span>
       <strong>{{ title }}</strong>
       <p>{{ text }}</p>
-      <small>ZEOGPT 为第三方服务，价格、额度和规则以实时页面为准。</small>
+      <small>
+        ZEOGPT 不是 OpenAI 官方服务。本站可能从符合条件的注册或购买中获得推广收益；
+        这不会改变你的成交价格，也不构成稳定性、可用性或退款承诺。
+      </small>
     </div>
     <div class="zeogpt-cta__actions">
-      <a :href="href" :target="isExternal ? '_blank' : undefined" :rel="isExternal ? 'sponsored nofollow noopener noreferrer' : undefined">{{ label }}</a>
-      <a class="zeogpt-cta__secondary" :href="secondaryHref" :target="secondaryExternal ? '_blank' : undefined" :rel="secondaryExternal ? 'sponsored nofollow noopener noreferrer' : undefined">{{ secondaryLabel }}</a>
+      <a :href="href"
+         :target="isExternal ? '_blank' : undefined"
+         :rel="isExternal ? 'sponsored nofollow noopener noreferrer' : undefined">{{ label }}</a>
+      <a class="zeogpt-cta__secondary"
+         :href="secondaryHref"
+         :target="secondaryExternal ? '_blank' : undefined"
+         :rel="secondaryExternal ? 'sponsored nofollow noopener noreferrer' : undefined">{{ secondaryLabel }}</a>
     </div>
   </aside>
 </template>

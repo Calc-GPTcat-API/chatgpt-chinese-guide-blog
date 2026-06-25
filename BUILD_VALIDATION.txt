@@ -1,0 +1,54 @@
+ChatGPT Chinese Guide - Build Validation
+Date: 2026-06-25
+Production origin: https://www.chinachatgpt.com
+
+Command:
+npm run verify
+
+Result:
+PASS
+
+Expected publication state:
+- Published articles: 8
+- Review queue: 52
+- Sitemap URLs: 23
+- RSS articles: 8
+
+Full output:
+
+> chatgpt-chinese-guide-zeogpt-site@1.1.0 verify
+> npm run build:production && npm run audit && npm run check:links
+
+
+> chatgpt-chinese-guide-zeogpt-site@1.1.0 build:production
+> node scripts/check-domain.mjs && npm run build
+
+域名检查通过：https://www.chinachatgpt.com
+
+> chatgpt-chinese-guide-zeogpt-site@1.1.0 prebuild
+> node scripts/generate-public-seo.mjs
+
+[seo] generated robots.txt, sitemap.xml (23 URLs) and feed.xml (8 articles) for https://www.chinachatgpt.com
+
+> chatgpt-chinese-guide-zeogpt-site@1.1.0 build
+> vitepress build docs
+
+
+  [32m[1mvitepress[22m v1.6.4[39m
+
+- building client + server bundles...
+[32m✓[0m building client + server bundles...
+- rendering pages...
+[32m✓[0m rendering pages...
+build complete in 4.98s.
+
+> chatgpt-chinese-guide-zeogpt-site@1.1.0 audit
+> node scripts/audit-site.mjs
+
+站点审计通过：77 个 HTML；8 篇公开、52 篇复核；sitemap 23 个 URL；RSS 8 篇。
+
+> chatgpt-chinese-guide-zeogpt-site@1.1.0 check:links
+> node scripts/check-links.mjs
+
+站内链接检查通过：77 个 HTML，2282 个站内链接引用。
+
