@@ -160,7 +160,7 @@ const keywords = [
       <div class="premium-section__head">
         <div>
           <p class="eyebrow">推荐教程</p>
-          <h2>优先冲 Bing 的核心文章</h2>
+          <h2>推荐阅读的核心文章</h2>
         </div>
         <a class="section-link" href="/blog/">全部文章 →</a>
       </div>

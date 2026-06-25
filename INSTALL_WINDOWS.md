@@ -1,7 +1,7 @@
 # Windows 本地运行
 
 ```powershell
-cd C:\Users\Administrator\Desktop\chatgpt-chinese-guide-blog-bg-clean
+cd C:\Users\Administrator\Desktop\chatgpt-chinese-guide-blog-heading-clean
 
 dir package.json
 
