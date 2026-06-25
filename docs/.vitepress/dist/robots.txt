@@ -1,0 +1,5 @@
+# 域名尚未配置：防止测试站误收录。
+User-agent: *
+Disallow: /
+
+Sitemap: https://example.com/sitemap.xml
