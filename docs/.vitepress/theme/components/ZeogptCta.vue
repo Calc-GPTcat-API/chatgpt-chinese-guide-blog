@@ -8,9 +8,9 @@ const props = withDefaults(defineProps<{
   secondaryHref?: string
   variant?: 'soft' | 'card' | 'compact' | 'conversion' | 'agent'
 }>(), {
-  title: '需要第三方多模型入口？',
-  text: '先核对实时套餐、模型、额度、付款和退款规则，再决定是否注册。',
-  label: '查看 ZEOGPT 实时页面',
+  title: '想省事使用多模型 AI？',
+  text: '如果你需要中文页面、快速体验、多模型切换或国内付款方式，可以先查看第三方入口；付款前请核对实时套餐、模型、额度和退款规则。',
+  label: '打开推荐入口',
   href: 'https://www.zeogpt.com/register?ref=Ac3KbS3F',
   secondaryLabel: '先看套餐核验方法',
   secondaryHref: '/pricing-guide/',

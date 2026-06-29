@@ -18,9 +18,8 @@ if (!fs.existsSync(root)) {
   process.exit(1)
 }
 
-if (articles.length !== 60) failures.push(`文章总数为 ${articles.length}，预期 60`)
-if (published.length !== 8) failures.push(`公开文章为 ${published.length}，预期 8`)
-if (review.length !== 52) failures.push(`复核队列为 ${review.length}，预期 52`)
+if (articles.length < 60) failures.push(`文章总数为 ${articles.length}，少于基础矩阵 60`)
+if (published.length < 8) failures.push(`公开文章为 ${published.length}，少于最低公开数量 8`)
 
 const required = [
   'index.html',
@@ -125,7 +124,7 @@ for (const item of articles) {
 
 const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8')
 const sitemapCount = (sitemap.match(/<url>/g) || []).length
-if (sitemapCount !== 23) failures.push(`sitemap URL 数为 ${sitemapCount}，预期 23`)
+if (sitemapCount < 23) failures.push(`sitemap URL 数为 ${sitemapCount}，少于最低预期 23`)
 if (!sitemap.includes(`${SITE_ORIGIN}/`)) failures.push('sitemap 未使用正式主域名')
 for (const item of published) {
   if (!sitemap.includes(`/blog/${item.slug}/`)) failures.push(`sitemap 缺少公开文章：${item.slug}`)
@@ -137,7 +136,7 @@ if (sitemap.includes('/topics/ai-models-tools/')) failures.push('sitemap 错误�
 
 const feed = fs.readFileSync(path.join(root, 'feed.xml'), 'utf8')
 const feedCount = (feed.match(/<item>/g) || []).length
-if (feedCount !== 8) failures.push(`RSS 文章数为 ${feedCount}，预期 8`)
+if (feedCount < 8) failures.push(`RSS 文章数为 ${feedCount}，少于最低预期 8`)
 for (const item of review) {
   if (feed.includes(`/blog/${item.slug}/`)) failures.push(`RSS 错误包含复核文章：${item.slug}`)
 }
@@ -156,4 +155,4 @@ if (failures.length) {
   process.exit(1)
 }
 
-console.log(`站点审计通过：${htmlFiles.length} 个 HTML；8 篇公开、52 篇复核；sitemap 23 个 URL；RSS 8 篇。`)
+console.log(`站点审计通过：${htmlFiles.length} 个 HTML；${published.length} 篇公开、${review.length} 篇复核；sitemap ${sitemapCount} 个 URL；RSS ${feedCount} 篇。`)

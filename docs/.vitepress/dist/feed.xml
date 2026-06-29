@@ -1,16 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 <channel>
-  <title>ChatGPT涓枃鎸囧崡</title>
+  <title>ChatGPT中文指南</title>
   <link>https://www.chinachatgpt.com/</link>
   <description>已核验的 ChatGPT 中文使用、支付、安全与第三方服务指南</description>
   <language>zh-CN</language>
+  <item>
+    <title>GPT Image 2 国内怎么用？中文提示词、画图入口和常见问题完整教程</title>
+    <link>https://www.chinachatgpt.com/blog/gpt-image-2-domestic-use-guide/</link>
+    <guid>https://www.chinachatgpt.com/blog/gpt-image-2-domestic-use-guide/</guid>
+    <pubDate>Thu, 25 Jun 2026 00:00:00 GMT</pubDate>
+    <description>围绕 GPT Image 2、GPT 画图、中文提示词和国内使用场景，整理头像、海报、小红书封面、电商图的提示词写法与第三方入口核验方法。</description>
+  </item>
+  <item>
+    <title>ClaudeCode 国内怎么用？安装、登录、替代方案和常见坑</title>
+    <link>https://www.chinachatgpt.com/blog/claudecode-domestic-use-guide/</link>
+    <guid>https://www.chinachatgpt.com/blog/claudecode-domestic-use-guide/</guid>
+    <pubDate>Thu, 25 Jun 2026 00:00:00 GMT</pubDate>
+    <description>面向国内开发者整理 ClaudeCode 使用路径、访问限制、账号安全、代码隐私和替代方案，并说明如何判断第三方ZEOGPT 多模型入口是否适合代码任务。</description>
+  </item>
+  <item>
+    <title>Codex、API 中转和 Token 中转怎么选？国内开发者入门教程</title>
+    <link>https://www.chinachatgpt.com/blog/codex-api-token-proxy-guide/</link>
+    <guid>https://www.chinachatgpt.com/blog/codex-api-token-proxy-guide/</guid>
+    <pubDate>Thu, 25 Jun 2026 00:00:00 GMT</pubDate>
+    <description>解释 Codex、API 中转、Token 中转的区别，适合国内开发者理解模型调用、密钥管理、计费透明度和第三方平台选择。</description>
+  </item>
+  <item>
+    <title>GPT 画图提示词大全：小红书封面、头像、海报和电商图模板</title>
+    <link>https://www.chinachatgpt.com/blog/gpt-drawing-prompts-xiaohongshu-cover/</link>
+    <guid>https://www.chinachatgpt.com/blog/gpt-drawing-prompts-xiaohongshu-cover/</guid>
+    <pubDate>Thu, 25 Jun 2026 00:00:00 GMT</pubDate>
+    <description>整理适合中文用户直接修改的 GPT 画图提示词模板，覆盖小红书封面、头像、海报、电商图和公众号首图，并给出生成失败后的调整方法。</description>
+  </item>
+  <item>
+    <title>2026 年国内 AI 工具入口推荐：ChatGPT、Claude、Gemini、Grok 怎么选</title>
+    <link>https://www.chinachatgpt.com/blog/ai-tools-domestic-recommendation-2026/</link>
+    <guid>https://www.chinachatgpt.com/blog/ai-tools-domestic-recommendation-2026/</guid>
+    <pubDate>Thu, 25 Jun 2026 00:00:00 GMT</pubDate>
+    <description>从中文页面、国内访问、模型数量、付款方式、代码能力和画图能力等维度，对比国内用户选择 AI 工具入口时的判断标准。</description>
+  </item>
+  <item>
+    <title>GPT-5、GPT-5.5、GPT-5.5 Pro 国内怎么用？看到这些关键词先核对什么</title>
+    <link>https://www.chinachatgpt.com/blog/chatgpt-gpt-5-keywords-domestic-use/</link>
+    <guid>https://www.chinachatgpt.com/blog/chatgpt-gpt-5-keywords-domestic-use/</guid>
+    <pubDate>Thu, 25 Jun 2026 00:00:00 GMT</pubDate>
+    <description>面向搜索 GPT-5、GPT-5.5、GPT-5.5 Pro 的用户，说明如何核对模型宣传、中文入口、镜像站、额度和付款规则，避免误把第三方页面当官方。</description>
+  </item>
+  <item>
+    <title>ZEOGPT 怎么注册？国内用户邮箱注册与开通步骤</title>
+    <link>https://www.chinachatgpt.com/blog/zeogpt-register-guide/</link>
+    <guid>https://www.chinachatgpt.com/blog/zeogpt-register-guide/</guid>
+    <pubDate>Wed, 24 Jun 2026 00:00:00 GMT</pubDate>
+    <description>围绕「ZEOGPT 怎么注册？国内用户邮箱注册与开通步骤」整理 ZEOGPT 注册、套餐、模型、付款与使用前核验点，帮助用户付款前看清规则和风险。</description>
+  </item>
+  <item>
+    <title>ZEOGPT 是什么？ChatGPT 镜像与多模型 AI 订阅说明</title>
+    <link>https://www.chinachatgpt.com/blog/what-is-zeogpt/</link>
+    <guid>https://www.chinachatgpt.com/blog/what-is-zeogpt/</guid>
+    <pubDate>Sun, 21 Jun 2026 00:00:00 GMT</pubDate>
+    <description>围绕「ZEOGPT 是什么？ChatGPT 镜像与多模型 AI 订阅说明」整理 ZEOGPT 注册、套餐、模型、付款与使用前核验点，帮助用户付款前看清规则和风险。</description>
+  </item>
+  <item>
+    <title>ZEOGPT 套餐怎么选？Plus、Pro 5x、Pro 20x 区别对比</title>
+    <link>https://www.chinachatgpt.com/blog/zeogpt-pricing-comparison/</link>
+    <guid>https://www.chinachatgpt.com/blog/zeogpt-pricing-comparison/</guid>
+    <pubDate>Sat, 20 Jun 2026 00:00:00 GMT</pubDate>
+    <description>围绕「ZEOGPT 套餐怎么选？Plus、Pro 5x、Pro 20x 区别对比」整理 ZEOGPT 注册、套餐、模型、付款与使用前核验点，帮助用户付款前看清规则和风险。</description>
+  </item>
   <item>
     <title>ChatGPT 官网入口在哪里？2026 国内用户使用 ChatGPT 完整教程</title>
     <link>https://www.chinachatgpt.com/blog/chatgpt-official-entry-domestic-use/</link>
     <guid>https://www.chinachatgpt.com/blog/chatgpt-official-entry-domestic-use/</guid>
     <pubDate>Tue, 23 Jun 2026 00:00:00 GMT</pubDate>
     <description>围绕「ChatGPT 官网入口在哪里？2026 国内用户使用 ChatGPT 完整教程」说明官方入口核验、打不开排查、中文使用与第三方入口区别，减少误点和误购。</description>
+  </item>
+  <item>
+    <title>ChatGPT Plus 国内怎么充值？支付失败、账号和安全说明</title>
+    <link>https://www.chinachatgpt.com/blog/chatgpt-plus-china-payment-guide/</link>
+    <guid>https://www.chinachatgpt.com/blog/chatgpt-plus-china-payment-guide/</guid>
+    <pubDate>Mon, 22 Jun 2026 00:00:00 GMT</pubDate>
+    <description>围绕「ChatGPT Plus 国内怎么充值？支付失败、账号和安全说明」说明 ChatGPT Plus 订阅、支付、账单、退款与账号安全，并提示第三方方案的边界。</description>
   </item>
   <item>
     <title>ChatGPT 中文版入口怎么找？官网、中文界面和镜像站区别</title>
@@ -27,39 +97,11 @@
     <description>围绕「ChatGPT 官网打不开怎么办？国内用户常见原因与解决方法」说明官方入口核验、打不开排查、中文使用与第三方入口区别，减少误点和误购。</description>
   </item>
   <item>
-    <title>ChatGPT Plus 国内怎么充值？支付失败、账号和安全说明</title>
-    <link>https://www.chinachatgpt.com/blog/chatgpt-plus-china-payment-guide/</link>
-    <guid>https://www.chinachatgpt.com/blog/chatgpt-plus-china-payment-guide/</guid>
-    <pubDate>Mon, 22 Jun 2026 00:00:00 GMT</pubDate>
-    <description>围绕「ChatGPT Plus 国内怎么充值？支付失败、账号和安全说明」说明 ChatGPT Plus 订阅、支付、账单、退款与账号安全，并提示第三方方案的边界。</description>
-  </item>
-  <item>
     <title>ChatGPT 镜像站安全吗？国内用户使用前必须检查的 7 件事</title>
     <link>https://www.chinachatgpt.com/blog/chatgpt-mirror-site-safety/</link>
     <guid>https://www.chinachatgpt.com/blog/chatgpt-mirror-site-safety/</guid>
     <pubDate>Tue, 16 Jun 2026 00:00:00 GMT</pubDate>
     <description>围绕「ChatGPT 镜像站安全吗？国内用户使用前必须检查的 7 件事」整理域名、账号、隐私、付款与稳定性检查，帮助用户判断是否继续了解 ZEOGPT。</description>
-  </item>
-  <item>
-    <title>ZEOGPT 是什么？ChatGPT 镜像与多模型 AI 订阅说明</title>
-    <link>https://www.chinachatgpt.com/blog/what-is-zeogpt/</link>
-    <guid>https://www.chinachatgpt.com/blog/what-is-zeogpt/</guid>
-    <pubDate>Sun, 21 Jun 2026 00:00:00 GMT</pubDate>
-    <description>围绕「ZEOGPT 是什么？ChatGPT 镜像与多模型 AI 订阅说明」整理 ZEOGPT 注册、套餐、模型、付款与使用前核验点，帮助用户付款前看清规则和风险。</description>
-  </item>
-  <item>
-    <title>ZEOGPT 怎么注册？国内用户邮箱注册与开通步骤</title>
-    <link>https://www.chinachatgpt.com/blog/zeogpt-register-guide/</link>
-    <guid>https://www.chinachatgpt.com/blog/zeogpt-register-guide/</guid>
-    <pubDate>Wed, 24 Jun 2026 00:00:00 GMT</pubDate>
-    <description>围绕「ZEOGPT 怎么注册？国内用户邮箱注册与开通步骤」整理 ZEOGPT 注册、套餐、模型、付款与使用前核验点，帮助用户付款前看清规则和风险。</description>
-  </item>
-  <item>
-    <title>ZEOGPT 套餐怎么选？Plus、Pro 5x、Pro 20x 区别对比</title>
-    <link>https://www.chinachatgpt.com/blog/zeogpt-pricing-comparison/</link>
-    <guid>https://www.chinachatgpt.com/blog/zeogpt-pricing-comparison/</guid>
-    <pubDate>Sat, 20 Jun 2026 00:00:00 GMT</pubDate>
-    <description>围绕「ZEOGPT 套餐怎么选？Plus、Pro 5x、Pro 20x 区别对比」整理 ZEOGPT 注册、套餐、模型、付款与使用前核验点，帮助用户付款前看清规则和风险。</description>
   </item>
 </channel>
 </rss>

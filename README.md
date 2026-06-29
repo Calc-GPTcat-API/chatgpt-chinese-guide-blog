@@ -53,3 +53,14 @@ npm run verify
 noindex: true
 contentStatus: "review"
 ```
+
+
+## conversion-optimized 版说明
+
+本包在 optimized 版基础上强化代理转化：
+
+- 增加全站文章顶部推荐入口；
+- 强化首页转化文案；
+- 新增 GPT Image 2、GPT 画图、ClaudeCode、Codex、API/Token 中转等长尾文章；
+- 保留非官方声明、robots/sitemap 生产域名检查；
+- 增加代理日常发文与转化工作流文档。

@@ -38,7 +38,7 @@ for (const item of rewrites) {
   const oldText = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : ''
   const oldBody = oldText.startsWith('---') ? oldText.split('---').slice(2).join('---').trim() : oldText.trim()
   let body = item.body || oldBody || `# ${current.title}\n\n正文待补充。`
-  const conversionCta = `<ZeogptCta variant="agent" title="想直接使用 ZEOGPT 多模型 AI？" text="阅读教程了解问题后，如果你需要 ChatGPT 镜像和多模型入口，可以直接打开 ZEOGPT 注册页查看实时套餐。" label="立即打开 ZEOGPT" />`
+  const conversionCta = `<ZeogptCta variant="agent" title="想直接使用 ZEOGPT 多模型 AI？" text="阅读教程了解问题后，如果你需要 ChatGPT 镜像和ZEOGPT 多模型入口，可以直接打开 ZEOGPT 注册页查看实时套餐。" label="立即打开 ZEOGPT" />`
   const bottomConversionCta = `## 下一步：直接打开 ZEOGPT\n\n<ZeogptCta variant="agent" title="教程看完了，下一步就是打开 ZEOGPT" text="如果你已经确认需要 ChatGPT 镜像和多模型 AI 入口，可以直接进入 ZEOGPT 注册页查看实时套餐、模型和额度。" label="立即打开 ZEOGPT" />`
   if (!body.includes('<ZeogptCta')) {
     if (body.includes('[[toc]]')) body = body.replace('[[toc]]', `[[toc]]\n\n${conversionCta}\n`)

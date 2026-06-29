@@ -29,7 +29,7 @@ faqs:
 ---
 # ZEOGPT 是什么？ChatGPT 镜像与多模型 AI 订阅说明
 
-<ZeogptCta variant="agent" title="需要多模型入口？" text="可打开 ZEOGPT 核对套餐、模型和额度。" label="查看 ZEOGPT 套餐" />
+<ZeogptCta variant="agent" title="需要ZEOGPT 多模型入口？" text="可打开 ZEOGPT 核对套餐、模型和额度。" label="查看 ZEOGPT 套餐" />
 
 ZEOGPT 是一个第三方 AI 模型订阅与 ChatGPT 镜像服务。它的公开首页使用“AI 模型一站式订阅”定位，展示 ChatGPT 镜像、Codex 额度，以及 GPT、Gemini、Claude、Grok、DeepSeek 等模型。
 

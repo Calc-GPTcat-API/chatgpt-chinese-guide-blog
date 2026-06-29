@@ -1,6 +1,6 @@
 {
   "name": "chatgpt-chinese-guide-zeogpt-site",
-  "version": "1.1.0",
+  "version": "1.2.1-zeogpt-only",
   "private": true,
   "type": "module",
   "scripts": {

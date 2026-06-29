@@ -29,7 +29,7 @@ faqs:
 ---
 # ZEOGPT 怎么注册？国内用户邮箱注册与开通步骤
 
-<ZeogptCta variant="agent" title="需要多模型入口？" text="可打开 ZEOGPT 核对套餐、模型和额度。" label="查看 ZEOGPT 套餐" />
+<ZeogptCta variant="agent" title="需要ZEOGPT 多模型入口？" text="可打开 ZEOGPT 核对套餐、模型和额度。" label="查看 ZEOGPT 套餐" />
 
 ZEOGPT 的公开注册流程较短：输入邮箱、获取验证码、设置密码，然后注册并登录。真正需要注意的不是按钮位置，而是域名、验证码、密码复用、套餐归属和付款规则。
 

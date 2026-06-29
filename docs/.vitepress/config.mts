@@ -211,7 +211,7 @@ export default defineConfig({
       { text: '教程博客', link: '/blog/' },
       { text: '内容标准', link: '/editorial-policy/' },
       {
-        text: 'ZEOGPT 套餐（第三方）',
+        text: 'ZEOGPT 推荐入口（第三方）',
         link: 'https://www.zeogpt.com/register?ref=Ac3KbS3F'
       }
     ],

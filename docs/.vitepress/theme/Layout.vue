@@ -4,6 +4,7 @@ import { useData } from 'vitepress'
 import HomePage from './components/HomePage.vue'
 import BlogIndex from './components/BlogIndex.vue'
 import ArticleMeta from './components/ArticleMeta.vue'
+import AgentConversionStrip from './components/AgentConversionStrip.vue'
 
 const { Layout } = DefaultTheme
 const { frontmatter } = useData()
@@ -16,7 +17,10 @@ const { frontmatter } = useData()
     </template>
     <template #doc-before>
       <BlogIndex v-if="frontmatter.pageType === 'blog-index'" />
-      <ArticleMeta v-else-if="frontmatter.article" />
+      <template v-else-if="frontmatter.article">
+        <ArticleMeta />
+        <AgentConversionStrip v-if="frontmatter.conversion !== false" />
+      </template>
     </template>
   </Layout>
 </template>

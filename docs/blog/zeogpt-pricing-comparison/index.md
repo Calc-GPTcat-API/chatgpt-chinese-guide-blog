@@ -27,7 +27,7 @@ faqs:
 ---
 # ZEOGPT 套餐怎么选？Plus、Pro 5x、Pro 20x 区别对比
 
-<ZeogptCta variant="agent" title="需要多模型入口？" text="可打开 ZEOGPT 核对套餐、模型和额度。" label="查看 ZEOGPT 套餐" />
+<ZeogptCta variant="agent" title="需要ZEOGPT 多模型入口？" text="可打开 ZEOGPT 核对套餐、模型和额度。" label="查看 ZEOGPT 套餐" />
 
 ZEOGPT 公开套餐页提供 Plus、Pro 5x、Pro 20x 三档，并可切换周付、月付和年付。选择时不应只看“5x”“20x”，而要把每天实际使用量、模型刷新周期、Codex 额度、价格和退款边界放在一起比较。
 

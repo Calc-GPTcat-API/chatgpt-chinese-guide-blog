@@ -2,97 +2,157 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.chinachatgpt.com/</loc>
-    <lastmod>2026-06-25T09:11:43.261Z</lastmod>
+    <lastmod>2026-06-29T01:22:45.786Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.chinachatgpt.com/blog/</loc>
-    <lastmod>2026-06-25T09:11:43.261Z</lastmod>
+    <lastmod>2026-06-29T01:22:45.786Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.chinachatgpt.com/zeogpt/</loc>
-    <lastmod>2026-06-25T09:11:43.261Z</lastmod>
+    <lastmod>2026-06-29T01:22:45.786Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.chinachatgpt.com/pricing-guide/</loc>
-    <lastmod>2026-06-25T09:11:43.261Z</lastmod>
+    <lastmod>2026-06-29T01:22:45.786Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.chinachatgpt.com/faq/</loc>
-    <lastmod>2026-06-25T09:11:43.261Z</lastmod>
+    <lastmod>2026-06-29T01:22:45.786Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.chinachatgpt.com/about/</loc>
-    <lastmod>2026-06-25T09:11:43.261Z</lastmod>
+    <lastmod>2026-06-29T01:22:45.786Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.chinachatgpt.com/editorial-policy/</loc>
-    <lastmod>2026-06-25T09:11:43.261Z</lastmod>
+    <lastmod>2026-06-29T01:22:45.786Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.chinachatgpt.com/privacy/</loc>
-    <lastmod>2026-06-25T09:11:43.261Z</lastmod>
+    <lastmod>2026-06-29T01:22:45.786Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.chinachatgpt.com/disclaimer/</loc>
-    <lastmod>2026-06-25T09:11:43.261Z</lastmod>
+    <lastmod>2026-06-29T01:22:45.786Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.chinachatgpt.com/topics/chatgpt-official-entry/</loc>
-    <lastmod>2026-06-25T09:11:43.261Z</lastmod>
+    <lastmod>2026-06-29T01:22:45.786Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.chinachatgpt.com/topics/chatgpt-china-use/</loc>
-    <lastmod>2026-06-25T09:11:43.261Z</lastmod>
+    <lastmod>2026-06-29T01:22:45.786Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.chinachatgpt.com/topics/chatgpt-chinese-version/</loc>
-    <lastmod>2026-06-25T09:11:43.261Z</lastmod>
+    <lastmod>2026-06-29T01:22:45.786Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.chinachatgpt.com/topics/chatgpt-plus-payment/</loc>
-    <lastmod>2026-06-25T09:11:43.261Z</lastmod>
+    <lastmod>2026-06-29T01:22:45.786Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.chinachatgpt.com/topics/chatgpt-mirror-safety/</loc>
-    <lastmod>2026-06-25T09:11:43.261Z</lastmod>
+    <lastmod>2026-06-29T01:22:45.786Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.chinachatgpt.com/topics/zeogpt-guide/</loc>
-    <lastmod>2026-06-25T09:11:43.261Z</lastmod>
+    <lastmod>2026-06-29T01:22:45.786Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
+    <loc>https://www.chinachatgpt.com/blog/gpt-image-2-domestic-use-guide/</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.chinachatgpt.com/blog/claudecode-domestic-use-guide/</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.chinachatgpt.com/blog/codex-api-token-proxy-guide/</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.chinachatgpt.com/blog/gpt-drawing-prompts-xiaohongshu-cover/</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.chinachatgpt.com/blog/ai-tools-domestic-recommendation-2026/</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.chinachatgpt.com/blog/chatgpt-gpt-5-keywords-domestic-use/</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.chinachatgpt.com/blog/zeogpt-register-guide/</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.chinachatgpt.com/blog/what-is-zeogpt/</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.chinachatgpt.com/blog/zeogpt-pricing-comparison/</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.chinachatgpt.com/blog/chatgpt-official-entry-domestic-use/</loc>
     <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.chinachatgpt.com/blog/chatgpt-plus-china-payment-guide/</loc>
+    <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -109,32 +169,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.chinachatgpt.com/blog/chatgpt-plus-china-payment-guide/</loc>
-    <lastmod>2026-06-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.chinachatgpt.com/blog/chatgpt-mirror-site-safety/</loc>
     <lastmod>2026-06-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.chinachatgpt.com/blog/what-is-zeogpt/</loc>
-    <lastmod>2026-06-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.chinachatgpt.com/blog/zeogpt-register-guide/</loc>
-    <lastmod>2026-06-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.chinachatgpt.com/blog/zeogpt-pricing-comparison/</loc>
-    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -30,17 +30,17 @@ const checks = [
           <span class="title-line title-sub">中文指南</span>
         </h1>
         <p class="subtitle">
-          面向中文用户整理 ChatGPT 官网入口、中文使用、访问排查、Plus 支付和第三方服务风险。
-          先获得可执行答案，再决定是否注册、订阅或使用第三方平台。
+          面向国内用户整理 ChatGPT 中文使用、GPT 画图、Codex、ClaudeCode、API 中转和多模型平台选择。
+          先用教程解决问题，再用清晰入口完成注册、体验或购买决策。
         </p>
         <div class="hero-actions">
           <a class="primary-btn" href="/blog/">按问题查教程</a>
           <a class="ghost-btn" href="/editorial-policy/">查看内容标准</a>
           <a class="secondary-btn" :href="registerUrl" target="_blank"
-             rel="sponsored nofollow noopener noreferrer">ZEOGPT 第三方页面</a>
+             rel="sponsored nofollow noopener noreferrer">查看ZEOGPT 推荐入口</a>
         </div>
         <p class="hero-disclosure">
-          ZEOGPT 链接属于推广链接；该平台并非 OpenAI 官方服务，进入前请先查看第三方边界与实时规则。
+          推荐入口属于第三方服务推广链接；进入前请核对实时套餐、模型、额度、隐私和退款规则。
         </p>
       </div>
 
@@ -56,8 +56,8 @@ const checks = [
 
     <section class="premium-section">
       <div class="premium-section__head">
-        <div><p class="eyebrow">使用路径</p><h2>从问题出发，不从推广入口出发</h2></div>
-        <p>四步完成入口判断、故障排查、方案比较和付款前核验。</p>
+        <div><p class="eyebrow">使用路径</p><h2>从搜索问题进入，用推荐入口完成转化</h2></div>
+        <p>先解决用户的真实问题，再在合适位置给出清晰、显眼但不过度承诺的推荐入口。</p>
       </div>
       <div class="path-grid">
         <a v-for="(step, index) in steps" :key="step[0]" class="path-card" href="/blog/">
@@ -71,7 +71,7 @@ const checks = [
     <section class="premium-section twin-panel">
       <div class="glass-panel feature-panel">
         <p class="eyebrow">第三方服务边界</p>
-        <h2>需要多模型入口时，先读清楚风险与规则</h2>
+        <h2>需要ZEOGPT 多模型入口时，先读清楚风险与规则</h2>
         <p>第三方平台可能提供中文界面、本地付款或多模型聚合，但它有独立账号体系、服务条款、隐私政策和稳定性风险。</p>
         <ul class="check-list"><li v-for="item in checks" :key="item">{{ item }}</li></ul>
         <div class="panel-actions panel-actions--conversion">

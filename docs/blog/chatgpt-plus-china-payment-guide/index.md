@@ -164,4 +164,4 @@ OpenAI 的[多币种结算说明](https://help.openai.com/en/articles/10421635-m
 
 ## 下一步：核对方案后再决定
 
-<ZeogptCta variant="agent" title="核对需求后再选择" text="先确认官方入口、账号、隐私、套餐和退款规则；确实需要第三方多模型入口时，再查看实时页面。" label="查看第三方方案" />
+<ZeogptCta variant="agent" title="核对需求后再选择" text="先确认官方入口、账号、隐私、套餐和退款规则；确实需要第三方ZEOGPT 多模型入口时，再查看实时页面。" label="查看第三方方案" />
