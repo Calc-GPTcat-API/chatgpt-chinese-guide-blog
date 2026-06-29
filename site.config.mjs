@@ -1,8 +1,8 @@
-/**
+﻿/**
  * Single source of truth for production domain and ZEOGPT promotion.
  * Keep this file ASCII-safe to avoid Windows encoding corruption.
  */
-export const SITE_DOMAIN = process.env.SITE_URL || 'https://www.chinachatgpt.com'
+export const SITE_DOMAIN = 'www.chinachatgpt.com'
 
 export const SITE_IS_PLACEHOLDER = !SITE_DOMAIN || /example\.com|placeholder|your-domain|test-domain/i.test(SITE_DOMAIN)
 
@@ -28,3 +28,4 @@ export const PROMOTION_PRIMARY_URL = ZEOGPT_REGISTER_URL
 export const PROMOTION_PRIMARY_DESC = 'ZEOGPT third-party AI platform entry. Check live pricing, quota, privacy and refund rules before registration or payment.'
 
 export const PROMOTION_SECONDARY_LINKS = []
+
