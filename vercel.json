@@ -1,6 +1,6 @@
 {
-  "framework": null,
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "",
-  "buildCommand": null,
+  "buildCommand": "echo skip build",
   "outputDirectory": "docs/.vitepress/dist"
 }
